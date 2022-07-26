@@ -4,6 +4,10 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ToastrModule } from 'ngx-toastr';
 import {TabsModule} from 'ngx-bootstrap/tabs'
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+// Import library module
+import { NgxSpinnerModule } from "ngx-spinner";
+
 
 
 
@@ -16,7 +20,9 @@ import { NgxGalleryModule } from '@kolkov/ngx-gallery';
       positionClass: 'toast-bottom-right'
     }),
     TabsModule.forRoot(),
-    NgxGalleryModule
+    NgxGalleryModule,
+    // BrowserAnimationsModule,
+    // NgxSpinnerModule
   ],
   exports: [
     BsDropdownModule,
