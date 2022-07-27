@@ -7,6 +7,8 @@ import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 // Import library module
 import { NgxSpinnerModule } from "ngx-spinner";
+import { fileURLToPath } from 'url';
+import {FileUploadModule} from 'ng2-file-upload';
 
 
 
@@ -21,14 +23,14 @@ import { NgxSpinnerModule } from "ngx-spinner";
     }),
     TabsModule.forRoot(),
     NgxGalleryModule,
-    // BrowserAnimationsModule,
-    // NgxSpinnerModule
+    FileUploadModule
   ],
   exports: [
     BsDropdownModule,
     ToastrModule,
     TabsModule,
-    NgxGalleryModule
+    NgxGalleryModule,
+    FileUploadModule
   ]
 })
 export class SharedModule { }
