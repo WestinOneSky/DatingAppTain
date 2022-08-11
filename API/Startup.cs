@@ -20,6 +20,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using API.Extensions;
 using API.MiddleWare;
+using API.SingalR;
 
 namespace API
 {
@@ -42,12 +43,15 @@ namespace API
             services.AddCors(options =>
              {
                  options.AddDefaultPolicy(policy => policy.AllowAnyHeader()
-                     .AllowAnyMethod().WithOrigins("https://localhost:4200"));
+                     .AllowAnyMethod()
+                     .AllowCredentials()
+                     .WithOrigins("https://localhost:4200"));
              });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Test", Version = "v1" });
             });
+            services.AddSignalR();
            
         }
 
@@ -69,6 +73,8 @@ namespace API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<PresenceHub>("hubs/presence");
+                endpoints.MapHub<MessageHub>("hubs/message");
             });
         }
     }
