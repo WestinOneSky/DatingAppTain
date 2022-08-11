@@ -33,7 +33,7 @@ namespace API.Data
         public async Task<PagedList<MemberDto>> GetMembersAsync(UserParams userParams)
         {
             var query = _context2.Users.AsQueryable();
- 
+
             query = query.Where(u => u.UserName != userParams.CurrentUsername);
             query = query.Where(u => u.Gender == userParams.Gender);
 
@@ -44,7 +44,7 @@ namespace API.Data
 
             query = userParams.Orderby switch
             {
-                "created" => query.OrderByDescending(u=> u.Created),
+                "created" => query.OrderByDescending(u => u.Created),
                 _ => query.OrderByDescending(u => u.LastActive)
             };
 
@@ -66,6 +66,12 @@ namespace API.Data
             .SingleOrDefaultAsync(x => x.UserName == username);
         }
 
+        public async Task<string> GetUserGender(string username)
+        {
+            return await _context2.Users.Where(x => x.UserName == username)
+                .Select(x => x.Gender).FirstOrDefaultAsync();
+        }
+
         public async Task<IEnumerable<AppUser>> GetUsersAsync()
         {
             return await _context2.Users
@@ -74,10 +80,6 @@ namespace API.Data
 
         }
 
-        public async Task<bool> SaveAllAsync()
-        {
-            return await _context2.SaveChangesAsync() > 0;
-        }
 
         public void Update(AppUser user)
         {
