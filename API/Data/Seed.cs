@@ -41,6 +41,7 @@ namespace API.Data
                 await userManager.CreateAsync(user, "Pa$$w0rd");
 
                 await userManager.AddToRoleAsync(user, "Member");
+                user.Photos.First().IsApproved = true;
             }
 
             var admin = new AppUser

@@ -5,6 +5,7 @@ import { Member } from 'src/app/_models/members';
 import { Photo } from 'src/app/_models/photo';
 import { User } from 'src/app/_models/user';
 import { AccountService } from 'src/app/_services/account.service';
+import { AdminService } from 'src/app/_services/admin.service';
 import { MembersService } from 'src/app/_services/members.service';
 import { environment } from 'src/environments/environment';
 
@@ -32,6 +33,7 @@ export class PhotoEditorComponent implements OnInit {
   fileOverBase(e: any){
     this.hasBaseDropzoneOver = e;
   }
+
 
   setMainPhoto(photo: Photo){
     this.memberService.setMainPhoto(photo.id).subscribe(()=>{

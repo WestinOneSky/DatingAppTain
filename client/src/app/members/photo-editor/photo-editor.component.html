@@ -1,9 +1,9 @@
 <div class="row">
     <div class="col-2 mt-2" *ngFor="let photo of member.photos">
-        <img src="{{photo.url}}" alt="{{photo.url}}" class="img-thumbnail p-1">
-        <div class="text-center">
+        <p *ngIf="!photo.isApproved" class="textt">Photo is awaiting approval</p>
+        <img src="{{photo.url}}" alt="{{photo.url}}" class="img-thumbnail p-1" [class.not]="!photo.isApproved">
             <button 
-                [disabled]="photo.isMain"
+                [disabled]="photo.isMain || photo.isApproved === false"
                 (click)="setMainPhoto(photo)"
                 [ngClass]='photo.isMain ? "btn-success active" : "btn-outline-success"'
                 class="btn btn-md btn-secondary"
@@ -13,12 +13,8 @@
                 (click)="deletePhoto(photo.id)"
                 class="btn btn.sm btn-primary" 
                 ><i class="fa fa-trash"></i></button>
-        </div>
-    </div>
 </div>
-
 <div class="row">
- 
     <div class="col-md-3">
 
         <h3 class="mt-3">Add Photos</h3>
@@ -61,7 +57,7 @@
         <div>
             <div>
                 Queue progress:
-                <div class="progress" style="">
+                <div class="progress">
                     <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
                 </div>
             </div>

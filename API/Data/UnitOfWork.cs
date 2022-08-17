@@ -18,7 +18,7 @@ namespace API.Data
         }
 
         public IUserRepository UserRepository => new UserRepository(_context2, _mapper);
-
+        public IPhotoRepository PhotoRepository => new PhotoRepository(_context2);
         public IMessageRepository MessageRepository => new MessageRepository(_context2, _mapper);
 
         public ILikesRepository LikesRepository => new LikesRepository(_context2);

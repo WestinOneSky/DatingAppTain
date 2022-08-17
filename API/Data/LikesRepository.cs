@@ -28,7 +28,7 @@ namespace API.Data
         {
             var users = _context2.Users.OrderBy(u => u.UserName).AsQueryable();
             var likes = _context2.Likes.AsQueryable();
-            Console.WriteLine("I'm in the GetUsersLikes!\n\n\n\n\\nn\\n\n");
+            // Console.WriteLine("I'm in the GetUsersLikes!\n\n\n\n\\nn\\n\n");
             if (likesParams.predicate == "liked")
             {
                 likes = likes.Where(like => like.SourceUserId == likesParams.UserId);
@@ -39,7 +39,7 @@ namespace API.Data
                 likes = likes.Where(like => like.LikedUserId == likesParams.UserId);
                 users = likes.Select(like => like.SourceUser);
             }
-            Console.WriteLine("I made it passed the IF STATEMENTS\n\n\n\n\n\n\n\n\n");
+            // Console.WriteLine("I made it passed the IF STATEMENTS\n\n\n\n\n\n\n\n\n");
             var likedUsers= users.Select(user => new LikeDto
             {
                 Username = user.UserName,

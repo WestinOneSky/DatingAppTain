@@ -1,0 +1,24 @@
+.card {
+    background-color: rgb(85, 44, 197);
+}
+.card-li {
+    font-style: italic;
+}
+
+.imggg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+    height: 150px;
+}
+
+.username {
+    font-size: larger;
+    background-color: rgb(224, 62, 197);
+}
+
+.row {
+    background-image:linear-gradient(rgb(224, 62, 197),rgb(85, 44, 197));
+}
+

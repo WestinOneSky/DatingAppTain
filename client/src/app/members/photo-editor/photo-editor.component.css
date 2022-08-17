@@ -11,3 +11,23 @@ img.img-thumbnail{
 input[type = file]{
     color: transparent;
 }
+
+.textt {
+    position: absolute;
+    color: rgb(253, 57, 57);
+    height: 50%;
+    width: 50%;
+    font-weight: 750;
+    text-align: center;
+    text-shadow: 100px;
+}
+
+.not {
+    opacity: 1;
+
+}
+
+.img-text{
+    position: absolute;
+    bottom: 30%;
+}
